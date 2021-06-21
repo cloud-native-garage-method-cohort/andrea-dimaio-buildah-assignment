@@ -1,0 +1,17 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  generateName: andrea-dimaio-buildah-assignment-run-
+spec:
+  serviceAccountName: quayio
+  pipelineRef:
+    name: andrea-dimaio-buildah-assignment
+  workspaces:
+    - name: buildah-assignment-shared-data
+      volumeClaimTemplate:
+        spec:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 1Gi
