@@ -18,7 +18,7 @@ spec:
       image: quay.io/upslopeio/kustomize:latest
       script: |
         #!/bin/sh
-        cd output/k8s
+        cd source/k8s
         kustomize edit set image "quay.io/account-name/repo-name=$(params.image-with-tag)"
         kustomize edit set label "app:$(params.app-namespace)"
         kustomize edit set label "app.kubernetes.io/instance:$(params.app-namespace)"
