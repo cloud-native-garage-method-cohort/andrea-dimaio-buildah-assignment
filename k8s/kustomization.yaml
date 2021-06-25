@@ -4,3 +4,10 @@ resources:
 - deployment.yaml
 - service.yaml
 - route.yaml
+commonLabels:
+  app: andrea-dimaio-pipeline-from-scratch
+  app.kubernetes.io/instance: andrea-dimaio-pipeline-from-scratch
+  app.kubernetes.io/name: express-app
+images:
+- name: quay.io/account-name/repo-name
+  newName: quay.io/andrea-dimaio-it/bootcamp:$(tasks.clone-repository.results.commit)
